@@ -1,0 +1,14 @@
+{
+    "name": "angular-login-component",
+    "version": "0.0.1",
+    "main": "./login.js",
+    "keywords": [
+        "angular"
+    ],
+    "dependencies":{
+        "angular":"1.0.5"
+    },
+    "author": {
+        "name": "Allen Gay"
+    }
+}

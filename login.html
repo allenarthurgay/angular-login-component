@@ -1,0 +1,28 @@
+<div class="row">
+<form style="width:400px;margin:auto;">
+    <fieldset >
+        <legend>Login to your account</legend>
+
+        <div class="row">
+            <div class="small-3 columns">
+                <label for="email" class="right inline">Email</label>
+            </div>
+            <div class="small-9 columns">
+                <input type="email" id="email" name="email" placeholder="Your e-mail address" required ng-model="credentials.email">
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-3 columns">
+                <label for="password" class="right inline">Password</label>
+            </div>
+            <div class="small-9 columns">
+                <input type="password" id="password" name="password" placeholder=""  required ng-model="credentials.password">
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-offset-3 small-9 columns ">
+            <a href="#" class="button" ng-click="login()">Login</a>
+            </div>
+        </div>
+    </fieldset>
+</form>  </div>
