@@ -1,7 +1,7 @@
 {
     "name": "angular-login-component",
     "version": "0.0.1",
-    "main": "./login.js",
+    "main": ["./login.js", "./login.html"],
     "keywords": [
         "angular"
     ],
