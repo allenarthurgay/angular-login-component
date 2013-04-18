@@ -1,42 +1,90 @@
 define(['angular'], function (angular) {
-    /* Directives */
+
     var templateUrl = require.toUrl('./login.html'),
         module = angular.module('angular-login', []),
         directives = {},
         services = {};
 
-    angular.module('angular-login.directives', ['angular-login.authentication'])
-        .directive('appLogin', ['version', 'auth', function (version, auth) {
-            return {
-                restrict: 'E',
-                templateUrl: templateUrl,
-                scope: {},
-                controller: function ($scope) {
-                    $scope.login = function () {
-                        console.log($scope.credentials);
-                        auth.login($scope.credentials.email, $scope.credentials.password);
-                    }
+    module.directive('appLogin', ['auth', function (auth) {
+        return {
+            restrict: 'E',
+            templateUrl: templateUrl,
+            scope: {},
+            controller: function ($scope) {
+                $scope.login = function () {
+                    console.log($scope.credentials);
+                    auth.login($scope.credentials.email, $scope.credentials.password);
                 }
-            };
-        }]);
-
-
-    angular.module('angular-login.authentication', []).
-        factory('auth', function ($http) {
-            function login(username, password) {
-                alert(username + "," + password);
-                $http.get('/login')
-                    .success(function (data, status, header, config) {
-
-                    })
-                    .error(function (data, status, headers, config) {
-
-                    });
             }
+        };
+    }]);
 
-            return {
-                login: login
-            };
-        });
+    module.factory('auth', function ($http) {
+        function login(username, password) {
+            console.log(username + "," + password);
+            return true;
+            /*
+             $http.get('/login')
+             .success(function (data, status, header, config) {
+
+             })
+             .error(function (data, status, headers, config) {
+
+             }); */
+        }
+
+        function isLoggedIn() {
+            return true;
+        }
+
+        return {
+            login: login
+        };
+    });
+});
+
+define(['angular'], function (angular) {
+
+    var templateUrl = require.toUrl('./login.html'),
+        module = angular.module('angular-login', []),
+        directives = {},
+        services = {};
+
+    module.directive('appLogin', ['auth', function (auth) {
+        return {
+            restrict: 'E',
+            templateUrl: templateUrl,
+            scope: {},
+            controller: function ($scope) {
+                $scope.login = function () {
+                    console.log($scope.credentials);
+                    auth.login($scope.credentials.email, $scope.credentials.password);
+                }
+            }
+        };
+    }]);
+
+    module.factory('auth', function ($http) {
+        function login(username, password) {
+            console.log(username + "," + password);
+            return true;
+            /*
+             $http.get('/login')
+             .success(function (data, status, header, config) {
+
+             })
+             .error(function (data, status, headers, config) {
+
+             }); */
+        }
+
+        function isLoggedIn() {
+            return true;
+        }
+
+        return {
+            login: login
+        };
+    });
 });
 
