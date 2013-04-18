@@ -1,6 +1,10 @@
 define(['angular'], function (angular) {
     /* Directives */
-    var templateUrl = require.toUrl('./login.html');
+    var templateUrl = require.toUrl('./login.html'),
+        module = angular.module('angular-login', []),
+        directives = {},
+        services = {};
+
     angular.module('angular-login.directives', ['angular-login.authentication'])
         .directive('appLogin', ['version', 'auth', function (version, auth) {
             return {
